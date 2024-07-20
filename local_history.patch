@@ -1,0 +1,115 @@
+Index: app/src/main/java/com/example/furniture/CartAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/furniture/CartAdapter.java b/app/src/main/java/com/example/furniture/CartAdapter.java
+--- a/app/src/main/java/com/example/furniture/CartAdapter.java	
++++ b/app/src/main/java/com/example/furniture/CartAdapter.java	(date 1665501210250)
+@@ -1,7 +1,9 @@
+ package com.example.furniture;
+ 
++
+ import android.content.Context;
+ import android.net.Uri;
++
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
+@@ -14,12 +16,14 @@
+ 
+ import com.google.android.gms.tasks.OnFailureListener;
+ import com.google.android.gms.tasks.OnSuccessListener;
++import com.google.firebase.auth.FirebaseAuth;
+ import com.google.firebase.database.DatabaseReference;
+ import com.google.firebase.database.FirebaseDatabase;
+ import com.squareup.picasso.Picasso;
+ 
+ import java.util.ArrayList;
+ 
++
+ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartHolder> {
+     private Context context;
+     private ArrayList<CartModel> cartModelArrayList;
+@@ -40,27 +44,28 @@
+     @Override
+     public void onBindViewHolder(@NonNull CartHolder holder, int position) {
+         CartModel cartModel = cartModelArrayList.get(position);
+-        String Price=cartModel.getPrice();
+-        String img=cartModel.getImg();
+-        String Product_Category=cartModel.getProduct_Category();
+-        String Product_title=cartModel.getProduct_title();
+-        String Product_Description=cartModel.getProduct_Description();
+-        String Product_Id=cartModel.getProduct_Id();
+-        String uuid=cartModel.getUuid();
+-        String quantity=cartModel.getQuantity();
+-        String id=cartModel.getId();
++        String Price = cartModel.getPrice();
++        String img = cartModel.getImg();
++        String Product_Category = cartModel.getProduct_Category();
++        String Product_title = cartModel.getProduct_title();
++        String Product_Description = cartModel.getProduct_Description();
++        String Product_Id = cartModel.getProduct_Id();
++        String uuid = cartModel.getUuid();
++        String quantity = cartModel.getQuantity();
++        String id = cartModel.getId();
+ 
+-        holder.Product_Price.setText("Price: "+Price+"Rs");
++        holder.Product_Price.setText("Price: " + Price + "Rs");
+         Picasso.get().load(Uri.parse(img)).placeholder(R.drawable.ic_baseline_image).into(holder.Product_img);
+-        holder.Product_title.setText("Title: "+Product_title);
+-        holder.Product_quantity.setText("quantity: "+quantity);
++        holder.Product_title.setText("Title: " + Product_title);
++        holder.Product_quantity.setText("quantity: " + quantity);
+ 
+ 
+         holder.Cancel_Product.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+-                DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference("Users");
+-                databaseReference.child(uuid).child("Cart").child(id).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
++                FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
++                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users");
++                databaseReference.child(firebaseAuth.getCurrentUser().getUid()).child("Cart").child(id).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                     @Override
+                     public void onSuccess(Void unused) {
+                         Toast.makeText(context, "Item removed from cart", Toast.LENGTH_SHORT).show();
+@@ -68,9 +73,12 @@
+                 }).addOnFailureListener(new OnFailureListener() {
+                     @Override
+                     public void onFailure(@NonNull Exception e) {
+-
++                        Toast.makeText(context, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                     }
+-                })
++                });
++
++
++
+ 
+             }
+         });
+@@ -84,16 +92,16 @@
+     }
+ 
+     public static class CartHolder extends RecyclerView.ViewHolder {
+-        private TextView Product_title,Product_quantity,Product_Price;
+-        private ImageView Product_img,Cancel_Product;
++        private TextView Product_title, Product_quantity, Product_Price;
++        private ImageView Product_img, Cancel_Product;
+ 
+         public CartHolder(@NonNull View itemView) {
+             super(itemView);
+-            Product_title=itemView.findViewById(R.id.Product_title);
+-            Product_quantity=itemView.findViewById(R.id.Product_quantity);
+-            Product_Price=itemView.findViewById(R.id.Product_Price);
+-            Product_img=itemView.findViewById(R.id.Product_img);
+-            Cancel_Product=itemView.findViewById(R.id.Cancel_Product);
++            Product_title = itemView.findViewById(R.id.Product_title);
++            Product_quantity = itemView.findViewById(R.id.Product_quantity);
++            Product_Price = itemView.findViewById(R.id.Product_Price);
++            Product_img = itemView.findViewById(R.id.Product_img);
++            Cancel_Product = itemView.findViewById(R.id.Cancel_Product);
+ 
+ 
+         }

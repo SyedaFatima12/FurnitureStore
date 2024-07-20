@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_black"
+
+    tools:context=".MainSeller_Activity">
+
+    <RelativeLayout
+        android:id="@+id/RlToolbarSeller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shap_rec101"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/Seller_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="5dp"
+            android:padding="5dp"
+            android:src="@drawable/ic_more_2">
+
+        </ImageView>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/Seller_logout"
+            android:background="@drawable/rect_03"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tabProductsSeller"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/shape_rect04"
+                android:gravity="center"
+                android:text="Products"
+                android:textColor="@color/mustard">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tabOrdersSeller"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Orders"
+                android:textColor="@color/grey_black">
+
+            </TextView>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+   <!--Products Toolbar-->
+    <RelativeLayout
+        android:id="@+id/ProductRLSeller"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/RlToolbarSeller">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+
+                android:layout_width="match_parent"
+                android:layout_height="179dp"
+                android:layout_margin="20dp"
+                android:background="@color/white"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="5dp"
+                app:contentPadding="5dp">
+
+                <ImageView
+                    android:id="@+id/addProductSeller"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_add">
+
+                </ImageView>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+
+                android:layout_width="match_parent"
+                android:layout_height="179dp"
+                android:layout_margin="20dp"
+                android:background="@color/white"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="5dp"
+
+                app:contentPadding="5dp">
+
+                <TextView
+                    android:id="@+id/viewProductsSeller"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_margin="55dp"
+                    android:fontFamily="@font/playfairdisplay_variablefont"
+                    android:text="View Products"
+                    android:textAlignment="center"
+                    android:textColor="@color/mustard"
+                    android:textSize="24dp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+   <!--Order toolbar-->
+    <RelativeLayout
+        android:layout_below="@id/RlToolbarSeller"
+        android:id="@+id/OrderRLSeller"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/OrderRVSeller"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/row_order_seller">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

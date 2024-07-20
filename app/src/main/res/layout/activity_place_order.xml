@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_black"
+    android:orientation="vertical"
+    tools:context=".PlaceOrderActivity">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="5dp"
+        android:layout_margin="5dp">
+        <TextView
+            android:id="@+id/Customer_name"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="Customer name"
+            android:padding="15dp"
+            android:textColor="@color/mustard"
+            >
+
+        </TextView>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="5dp"
+        android:layout_margin="5dp">
+        <TextView
+            android:id="@+id/Customer_Address"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="Address"
+            android:padding="15dp"
+            android:textColor="@color/mustard"
+            >
+
+        </TextView>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="5dp"
+        android:layout_margin="5dp">
+        <TextView
+            android:id="@+id/Customer_Phone_No"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="Phone no"
+            android:padding="15dp"
+            android:textColor="@color/mustard"
+            >
+
+        </TextView>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Payment Method:"
+            android:padding="10dp"
+            android:textColor="@color/mustard"
+            >
+
+        </TextView>
+    <CheckBox android:id="@+id/checkbox_COD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cash On Delivery"
+        android:textColor="@color/mustard"
+        android:onClick="onCheckboxClicked"/>
+
+    <TextView
+        android:id="@+id/CreditCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Credit card "
+        android:padding="10dp"
+        android:textColor="@color/mustard"
+        >
+
+    </TextView>
+    <TextView
+        android:id="@+id/debitCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" Debit card "
+        android:padding="10dp"
+        android:textColor="@color/mustard"
+        >
+
+    </TextView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/PlaceOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="40dp"
+            android:text="Confirm Order">
+
+        </Button>
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>

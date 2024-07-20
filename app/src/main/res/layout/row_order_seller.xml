@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="2dp"
+    app:cardMaxElevation="3dp"
+    app:contentPadding="5dp"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/orderIdSellerTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="order : 12345"
+            android:textColor="@color/mustard"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/dateIdSellerTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentEnd="true"
+            android:text="22/06/2020"
+            android:textColor="@color/mustard"
+            android:textStyle="bold" />
+
+
+
+        <TextView
+            android:id="@+id/amountSellerTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dateIdSellerTv"
+            android:text="Total Amount : 6000 " />
+        <!---InProgress/Complete/Deliver-->
+        <TextView
+            android:id="@+id/orderSellerStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dateIdSellerTv"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentEnd="true"
+            android:text="In Progress"
+            android:textColor="@color/Greencolor">
+
+        </TextView>
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
